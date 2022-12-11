@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="../css/quizz.css" rel="stylesheet">
+		<meta charset="utf-8" />
+		<title>Quiz</title>
+	</head>
+	<body>
+		<h1>Quiz harry potter</h1>
+		<h2> Quiz pour savoir si on connait bien la série</h2>
+			<div><img src=../images/ImageFixe.jpg alt="quiz"></div>
+			<form  name="formu">
+				  <p>Dans le premier film il y a un chien a deux têtes: <br>
+					<input type="radio" id="vrai1" name="question1" value="vrai">
+				    <label for="vrai1">vrai</label><br>
+				    <input type="radio" id="faux1" name="question1" value="faux">
+				    <label for="faux1">faux</label><br>
+					 </p>
+				  <p>Le nom de Bellatrix est Lestange :<br>
+					<input type="radio" id="vrai2" name="question2" value="vrai">
+				    <label for="vrai2">vrai</label><br>
+				    <input type="radio" id="faux2" name="question2" value="faux">
+				    <label for="faux2">faux</label><br>
+					</p>
+				  <p>La plus grande peur des Dursley est les hiboux :<br>
+					<input type="radio" id="vrai3" name="question3" value="vrai">
+				    <label for="vrai3">vrai</label><br>
+				    <input type="radio" id="faux3" name="question3" value="faux">
+				    <label for="faux3">faux</label><br>
+					</p>
+				  <p>Grindelwald est un professeur de poudlard :<br>
+					<input type="radio" id="vrai4" name="question4" value="vrai">
+				    <label for="vrai4">vrai</label><br>
+				    <input type="radio" id="faux4" name="question4" value="faux">
+				    <label for="faux4">faux</label><br>
+					</p>
+				  <p>Harry sauve Ron avec un Bézoard : <br>
+					<input type="radio" id="vrai5" name="question5" value="vrai">
+				    <label for="vrai5">vrai</label><br>
+				    <input type="radio" id="faux5" name="question5" value="faux">
+				    <label for="faux5">faux</label><br>
+					</p>
+				  <p>RAB est le frère de Sirius : 
+					<br>
+					<input type="radio" id="vrai6" name="question6" value="vrai">
+				    <label for="vrai6">vrai</label><br>
+				    <input type="radio" id="faux6" name="question6" value="faux">
+				    <label for="faux6">faux</label><br>
+					</p>
+				  <p>
+					<input type="hidden" name="prim2">
+					<input type="button" value="Votre score " name="Bouton2" onClick=score()>
+					</p>
+				</form>
+		<script>
+			function bravo(faute)
+			{if (faute== 0)
+			{alert ("Bravo, aucune faute.");
+			}
+			if (faute==1 || faute ==2 || faute==3)
+			{alert("Pas mal mais tu peux faire mieux, recommance !");}
+			if (faute==4 || faute==5 || faute==6)
+			{alert("Trop d'erreurs...");}
+			}
+			function score()
+			{
+			var faute=0;
+			var valeur;
+			if (document.getElementById('vrai1').checked) 
+			 {valeur = document.getElementById('vrai1').value;}
+			 if (document.getElementById('faux1').checked) 
+			 {valeur = document.getElementById('faux1').value;}
+			 if (valeur!= "faux")
+			 {faute=faute+1;}
+			 if (document.getElementById('vrai2').checked) 
+			 {valeur = document.getElementById('vrai2').value;}
+			 if (document.getElementById('faux2').checked) 
+			 {valeur = document.getElementById('faux2').value;}
+			 if (valeur!= "vrai")
+			 {faute=faute+1;}
+			 if (document.getElementById('vrai3').checked) 
+			 {valeur = document.getElementById('vrai3').value;}
+			 if (document.getElementById('faux3').checked) 
+			 {valeur = document.getElementById('faux3').value;}
+			 if (valeur!= "faux")
+			 {faute=faute+1;}
+			 if (document.getElementById('vrai4').checked) 
+			 {valeur = document.getElementById('vrai4').value;}
+			 if (document.getElementById('faux4').checked) 
+			 {valeur = document.getElementById('faux4').value;}
+			 if (valeur!= "faux")
+			 {faute=faute+1;}
+			 if (document.getElementById('vrai5').checked) 
+			 {valeur = document.getElementById('vrai5').value;}
+			 if (document.getElementById('faux5').checked) 
+			 {valeur = document.getElementById('faux5').value;}
+			 if (valeur!= "vrai")
+			 {faute=faute+1;}
+			 if (document.getElementById('vrai6').checked) 
+			 {valeur = document.getElementById('vrai6').value;}
+			 if (document.getElementById('faux6').checked) 
+			 {valeur = document.getElementById('faux6').value;}
+			 if (valeur!= "vrai")
+			 {faute=faute+1;}
+			 bravo(faute);
+			}
+			
+			
+		</script>
+		  <nav>
+		  <ul>
+			<li><a href="page_principale.html">Accueil</a></li>
+			</ul>
+		  </nav>
+	</body>
+</html>
