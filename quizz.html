@@ -96,36 +96,36 @@
 			function displayResult(faute)
 			{
 				let score = "Tu as fait " + faute + " fautes\n";
-                if (faute== 0)
-                {
-                    alert (score + "Bravo, aucune faute.");
-                }
-                else if (faute>=1 && faute<=3)
-                {
-                    alert(score + "Pas mal mais tu peux faire mieux, recommence !");
-                }
-                else
-                {
-                    alert(score + "Trop d'erreurs...");
-                }
-            }
+		                if (faute== 0)
+		                {
+		                    alert (score + "Bravo, aucune faute.");
+		                }
+		                else if (faute>=1 && faute<=3)
+		                {
+		                    alert(score + "Pas mal mais tu peux faire mieux, recommence !");
+		                }
+		                else
+		                {
+		                    alert(score + "Trop d'erreurs...");
+		                }
+		        }
 
-            function getAnswer( index )
-            {
-                let elemVrai = "vrai" + ( q + 1 );
-                if( document.getElementById( elemVrai ).checked )
-                {
-                    return document.getElementById( elemVrai ).value;
-                }
-
-                let elemFaux = "faux" + ( q + 1 );
-                if( document.getElementById( elemFaux ).checked )
-                {
-                    return document.getElementById( elemFaux ).value;
-                }
-                return "0";
-            }
-            
+		    	function getAnswer( index )
+		    	{
+				let elemVrai = "vrai" + ( q + 1 );
+				if( document.getElementById( elemVrai ).checked )
+				{
+				    return document.getElementById( elemVrai ).value;
+				}
+		
+				let elemFaux = "faux" + ( q + 1 );
+				if( document.getElementById( elemFaux ).checked )
+				{
+				    return document.getElementById( elemFaux ).value;
+				}
+				return "0";
+		    	}
+			    
 			function checkAnswer()
 			{	
 				var faute=0;
@@ -137,14 +137,14 @@
 					exit();
 				}
 				for( q = 0; q<nbQuestion; q++ )
-                {
-                    let answer = getAnswer( q );
-                    if( answer=="0" )
-                    {
-                        faute++;
-                    }
-                }
-                displayResult(faute);
+				{
+				    let answer = getAnswer( q );
+				    if( answer=="0" )
+				    {
+					faute++;
+				    }
+				}
+				displayResult(faute);
 			}
 			
 			
