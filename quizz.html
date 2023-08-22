@@ -11,98 +11,140 @@
 			<div><img src=ImageFixe.jpg alt="quiz"></div>
 			<form  name="formu">
 				  <p>Dans le premier film il y a un chien a deux têtes: <br>
-					<input type="radio" id="vrai1" name="question1" value="vrai">
+					<input type="radio" id="vrai1" name="question1" value="0">
 				    <label for="vrai1">vrai</label><br>
-				    <input type="radio" id="faux1" name="question1" value="faux">
+				    <input type="radio" id="faux1" name="question1" value="1">
 				    <label for="faux1">faux</label><br>
 					 </p>
 				  <p>Le nom de Bellatrix est Lestrange :<br>
-					<input type="radio" id="vrai2" name="question2" value="vrai">
+					<input type="radio" id="vrai2" name="question2" value="1">
 				    <label for="vrai2">vrai</label><br>
-				    <input type="radio" id="faux2" name="question2" value="faux">
+				    <input type="radio" id="faux2" name="question2" value="0">
 				    <label for="faux2">faux</label><br>
 					</p>
 				  <p>La plus grande peur des Dursley est les hiboux :<br>
-					<input type="radio" id="vrai3" name="question3" value="vrai">
+					<input type="radio" id="vrai3" name="question3" value="0">
 				    <label for="vrai3">vrai</label><br>
-				    <input type="radio" id="faux3" name="question3" value="faux">
+				    <input type="radio" id="faux3" name="question3" value="1">
 				    <label for="faux3">faux</label><br>
 					</p>
 				  <p>Grindelwald est un professeur de poudlard :<br>
-					<input type="radio" id="vrai4" name="question4" value="vrai">
+					<input type="radio" id="vrai4" name="question4" value="0">
 				    <label for="vrai4">vrai</label><br>
-				    <input type="radio" id="faux4" name="question4" value="faux">
+				    <input type="radio" id="faux4" name="question4" value="1">
 				    <label for="faux4">faux</label><br>
 					</p>
 				  <p>Harry sauve Ron avec un Bézoard : <br>
-					<input type="radio" id="vrai5" name="question5" value="vrai">
+					<input type="radio" id="vrai5" name="question5" value="1">
 				    <label for="vrai5">vrai</label><br>
-				    <input type="radio" id="faux5" name="question5" value="faux">
+				    <input type="radio" id="faux5" name="question5" value="0">
 				    <label for="faux5">faux</label><br>
 					</p>
 				  <p>RAB est le frère de Sirius : 
 					<br>
-					<input type="radio" id="vrai6" name="question6" value="vrai">
+					<input type="radio" id="vrai6" name="question6" value="1">
 				    <label for="vrai6">vrai</label><br>
-				    <input type="radio" id="faux6" name="question6" value="faux">
+				    <input type="radio" id="faux6" name="question6" value="0">
 				    <label for="faux6">faux</label><br>
 					</p>
 				  <p>
 					<input type="hidden" name="prim2">
-					<input type="button" value="Votre score " name="Bouton2" onClick=score()>
+					<input type="button" value="Votre score " name="Bouton2" onClick=checkAnswer()>
 					</p>
 				</form>
 		<script>
-			function bravo(faute)
-			{if (faute== 0)
-			{alert ("Bravo, aucune faute.");
-			}
-			if (faute==1 || faute ==2 || faute==3)
-			{alert("Pas mal mais tu peux faire mieux, recommence !");}
-			if (faute==4 || faute==5 || faute==6)
-			{alert("Trop d'erreurs...");}
-			}
-			function score()
+			function nombre_questions()
 			{
-			var faute=0;
-			var valeur;
-			if (document.getElementById('vrai1').checked) 
-			 {valeur = document.getElementById('vrai1').value;}
-			 if (document.getElementById('faux1').checked) 
-			 {valeur = document.getElementById('faux1').value;}
-			 if (valeur!= "faux")
-			 {faute=faute+1;}
-			 if (document.getElementById('vrai2').checked) 
-			 {valeur = document.getElementById('vrai2').value;}
-			 if (document.getElementById('faux2').checked) 
-			 {valeur = document.getElementById('faux2').value;}
-			 if (valeur!= "vrai")
-			 {faute=faute+1;}
-			 if (document.getElementById('vrai3').checked) 
-			 {valeur = document.getElementById('vrai3').value;}
-			 if (document.getElementById('faux3').checked) 
-			 {valeur = document.getElementById('faux3').value;}
-			 if (valeur!= "faux")
-			 {faute=faute+1;}
-			 if (document.getElementById('vrai4').checked) 
-			 {valeur = document.getElementById('vrai4').value;}
-			 if (document.getElementById('faux4').checked) 
-			 {valeur = document.getElementById('faux4').value;}
-			 if (valeur!= "faux")
-			 {faute=faute+1;}
-			 if (document.getElementById('vrai5').checked) 
-			 {valeur = document.getElementById('vrai5').value;}
-			 if (document.getElementById('faux5').checked) 
-			 {valeur = document.getElementById('faux5').value;}
-			 if (valeur!= "vrai")
-			 {faute=faute+1;}
-			 if (document.getElementById('vrai6').checked) 
-			 {valeur = document.getElementById('vrai6').value;}
-			 if (document.getElementById('faux6').checked) 
-			 {valeur = document.getElementById('faux6').value;}
-			 if (valeur!= "vrai")
-			 {faute=faute+1;}
-			 bravo(faute);
+				var nbQuestion=0;
+				var elemId="vrai" + ( nbQuestion + 1 );
+				while (document.getElementById( elemId )!=null) 
+				{
+					nbQuestion+=1;
+					elemId="vrai" + ( nbQuestion + 1 );
+				}
+				return nbQuestion;
+			}
+			function verification(nbQuestion)
+			{
+				var selected=0;
+				var question=0;
+				var elemVrai = "vrai" + ( question + 1 );
+				var elemFaux = "faux" + ( question + 1 );
+				for(question; question<nbQuestion; question++)
+				{
+					elemVrai = "vrai" + ( question + 1 );
+					elemFaux = "faux" + ( question + 1 );
+					if( document.getElementById( elemVrai ).checked ) 
+					{
+						selected+=1
+					}
+					else if( document.getElementById( elemFaux).checked ) 
+					{
+						selected+=1
+					}
+				}
+				if (selected==nbQuestion)
+				{
+					return true;
+				}
+				else 
+				{
+					return false;
+				}
+			}
+			
+			function displayResult(faute)
+			{
+				let score = "Tu as fait " + faute + " fautes\n";
+                if (faute== 0)
+                {
+                    alert (score + "Bravo, aucune faute.");
+                }
+                else if (faute>=1 && faute<=3)
+                {
+                    alert(score + "Pas mal mais tu peux faire mieux, recommence !");
+                }
+                else
+                {
+                    alert(score + "Trop d'erreurs...");
+                }
+            }
+
+            function getAnswer( index )
+            {
+                let elemVrai = "vrai" + ( q + 1 );
+                if( document.getElementById( elemVrai ).checked )
+                {
+                    return document.getElementById( elemVrai ).value;
+                }
+
+                let elemFaux = "faux" + ( q + 1 );
+                if( document.getElementById( elemFaux ).checked )
+                {
+                    return document.getElementById( elemFaux ).value;
+                }
+                return "0";
+            }
+            
+			function checkAnswer()
+			{	
+				var faute=0;
+				var nbQuestion = nombre_questions() ;
+				var checkQuestions=verification(nbQuestion);
+				if (checkQuestions==false)
+				{
+					alert("Tu n'as pas répondu à toutes les questions.");
+					exit();
+				}
+				for( q = 0; q<nbQuestion; q++ )
+                {
+                    let answer = getAnswer( q );
+                    if( answer=="0" )
+                    {
+                        faute++;
+                    }
+                }
+                displayResult(faute);
 			}
 			
 			
